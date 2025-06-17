@@ -1,0 +1,7 @@
+numpy
+matplotlib
+pybind11
+trimesh
+scipy
+pywin32
+pyvista
