@@ -4,7 +4,7 @@ setlocal
 echo ====================================================
 echo  3D Maze Generator and Anomaly Detector
 echo  Developed by 5c0uT
-echo  Version: 1.0.0 | License: MIT
+echo  Version: 1.0.0
 echo ====================================================
 echo  Project Description:
 echo  - Generates parameterized 3D mazes with physics validation
@@ -52,5 +52,5 @@ echo  Для проверки модели на дефекты:
 echo    python detect_defects.py model.stl --visualize defects.png
 echo ====================================================
 echo  Проект: https://github.com/5c0uT/maze-anomaly-detector
-echo  Автор: 5c0uT | 2023
+echo  Автор: 5c0uT
 echo ====================================================
