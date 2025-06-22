@@ -8,6 +8,18 @@ import time
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, project_root)
 
+# Явно добавляем core в пути поиска
+core_path = os.path.join(project_root, 'core')
+if core_path not in sys.path:
+    sys.path.insert(0, core_path)
+
+print("="*50)
+print("Начало выполнения detect_defects.py")
+print("Текущая рабочая директория:", os.getcwd())
+print("PYTHONPATH:")
+for p in sys.path:
+    print(f" - {p}")
+
 try:
     from detector.analyzer import DefectAnalyzer
     from detector.visualizer import AnomalyVisualizer
@@ -15,8 +27,12 @@ try:
 except ImportError as e:
     print(f"Ошибка импорта: {e}")
     print("Текущий PYTHONPATH:", sys.path)
+    print("\nСодержимое detector/:")
+    try:
+        print(os.listdir(os.path.join(project_root, 'detector')))
+    except Exception as dir_err:
+        print(f"Ошибка при чтении директории: {dir_err}")
     raise
-
 
 def main():
     parser = argparse.ArgumentParser(description='Detect defects in a 3D model.')
@@ -50,7 +66,6 @@ def main():
         generate_html_report(results, args.report)
 
     print("Done!")
-
 
 if __name__ == "__main__":
     main()
